@@ -1,0 +1,4 @@
+
+#Basic URL
+ ###GET
+ GET http://localhost:9000/home

@@ -90,7 +90,7 @@ export const login = async (req, res) => {
         sameSite: 'strict',
       })
       .json({
-        message: `Welcome Back ${user.fullName}`,
+        message: `Welcome Back ${user.fullname}`,
         user,
         success: true,
       });
@@ -113,15 +113,12 @@ export const updateProfile = async (req, res) => {
   try {
     const { fullname, email, phoneNumber, bio, skills } = req.body;
     const file = req.file;
-    if (!fullname || !email || !phoneNumber || !bio || !skills) {
-      return res.status(400).json({
-        message: 'something is not filled',
-        success: false,
-      });
-    }
-    // Cloudinary will be here
 
-    const skillsArray = skills.split(',');
+    // Cloudinary will be here
+    let skillsArray;
+    if (skills) {
+      const skillsArray = skills.split(',');
+    }
     const userId = req.id; //middleware authentication
     let user = await User.findById(userId);
     if (!user) {
@@ -130,11 +127,11 @@ export const updateProfile = async (req, res) => {
         success: false,
       });
     }
-    (user.fullname = fullname),
-      (user.email = email),
-      (user.phoneNumber = phoneNumber),
-      (user.profile.bio = bio),
-      (user.profile.skills = skillsArray);
+    if (fullname) user.fullname = fullname;
+    if (email) user.email = email;
+    if (phoneNumber) user.phoneNumber = phoneNumber;
+    if (bio) user.profile.bio = bio;
+    if (skills) user.profile.skills = skillsArray;
     // resume comes here
     await user.save();
 

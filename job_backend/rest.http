@@ -13,4 +13,36 @@ Content-Type: application/json
     
 }
 
+
+
+
+// Login user 
+### 
+POST  http://localhost:8000/api/v1/user/login
+Content-Type: application/json
+
+{
+"email":"sankar1@gmail.com",
+"password":"asdf13",
+"role":"student"
+
+}
+
+
+//logout user
+
+###
+GET  http://localhost:8000/api/v1/user/logout
  
+
+//Update User
+
+###
+POST http://localhost:8000/api/v1/user/profile/update
+Content-Type: application/json
+
+{
+  "fullname":"shankar12"
+ 
+    
+}

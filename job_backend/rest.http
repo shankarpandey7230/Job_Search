@@ -2,13 +2,13 @@
 
 
 
-
  // For users  register
 POST http://localhost:8000/api/v1/user/register
+Content-Type: application/json
 
 {
-  "fullname":"shankar",
-  "email":"sdfasaf@gmail.com",
+  "fullname":"shankar132",
+  "email":"sankar1@gmail.com",
   "phoneNumber":"8980",
   "password":"asdf13",
   "role":"student"

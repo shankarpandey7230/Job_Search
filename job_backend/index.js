@@ -10,7 +10,7 @@ dotenv.config({});
 // middleware
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); // is used  to parse incoming request with URL-encoded payloads. and as it is true will allow parsing of nested objects and arrays using qs library
 app.use(cookieParser());
 
 const corsOptions = {

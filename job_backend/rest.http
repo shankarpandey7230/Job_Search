@@ -36,13 +36,13 @@ GET  http://localhost:8000/api/v1/user/logout
  
 
 //Update User
-
 ###
+
 POST http://localhost:8000/api/v1/user/profile/update
 Content-Type: application/json
 
 {
-  "fullname":"shankar12"
+  "fullname":"shankar125"
  
     
 }

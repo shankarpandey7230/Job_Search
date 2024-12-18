@@ -4,6 +4,7 @@ const companySchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
+      unique: true,
     },
     description: {
       type: String,
@@ -28,4 +29,4 @@ const companySchema = new mongoose.Schema(
   }
 );
 
-export const company = mongoose.model('Company', companySchema);
+export const Company = mongoose.model('Company', companySchema);

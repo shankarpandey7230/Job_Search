@@ -5,11 +5,11 @@ POST http://localhost:8000/api/v1/user/register
 Content-Type: application/json
 
 {
-  "fullname":"shankar132",
-  "email":"sankar1@gmail.com",
+  "fullname":"shankar123",
+  "email":"sankar12@gmail.com",
   "phoneNumber":"8980",
   "password":"asdf13",
-  "role":"student"
+  "role":"recruiter"
     
 }
 
@@ -22,9 +22,9 @@ POST  http://localhost:8000/api/v1/user/login
 Content-Type: application/json
 
 {
-"email":"sankar1@gmail.com",
+"email":"sankar12@gmail.com",
 "password":"asdf13",
-"role":"student"
+"role":"recruiter"
 
 }
 
@@ -46,3 +46,88 @@ Content-Type: application/json
  
     
 }
+
+
+
+
+//// Company
+
+# Register Company
+
+###
+POST http://localhost:8000/api/v1/company/register
+Content-Type: application/json
+
+{
+  "companyName":"Shankar Pvt Ltd"
+}
+
+#Get Company
+###
+GET  http://localhost:8000/api/v1/company/getComp
+
+
+//Get company by Id
+
+###
+GET http://localhost:8000/api/v1/company/getComp/675124ec8eda91c0ef7b302a
+
+
+//update Company
+
+###
+PUT http://localhost:8000/api/v1/company/update/675124ec8eda91c0ef7b302a
+Content-Type: application/json
+
+
+{
+  "name":"Shankar Software"
+}
+
+
+
+
+
+////Jobs
+
+#####
+POST  http://localhost:8000/api/v1/jobs/postJobs
+Content-Type: application/json
+
+{
+  "title":"Developer",
+  "description":"Developer with good working attitude",
+  "requirements":"React, Node, MongoDb",
+  "salary":"60000",
+  "location":"Tasmanina",
+  "jobType":"Full Time",
+  "experience":2,
+  "position":12,
+  "companyId":"675124ec8eda91c0ef7b302a"
+  
+
+
+
+
+}
+
+///Get all jobs
+###
+
+GET http://localhost:8000/api/v1/jobs/getJobs
+
+
+///Jobs Posted by Admins
+
+###
+
+GET http://localhost:8000/api/v1/jobs/getJobsAdmin
+
+
+
+
+
+////Individual jobs
+
+###
+GET http://localhost:8000/api/v1/jobs/getJobs/67621b4b62f1d23048c9c65e

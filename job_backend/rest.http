@@ -5,11 +5,11 @@ POST http://localhost:8000/api/v1/user/register
 Content-Type: application/json
 
 {
-  "fullname":"shankar123",
-  "email":"sankar12@gmail.com",
+  "fullname":"Gyanen",
+  "email":"gyan12@gmail.com",
   "phoneNumber":"8980",
   "password":"asdf13",
-  "role":"recruiter"
+  "role":"student"
     
 }
 
@@ -22,9 +22,9 @@ POST  http://localhost:8000/api/v1/user/login
 Content-Type: application/json
 
 {
-"email":"sankar12@gmail.com",
+"email":"gyan12@gmail.com",
 "password":"asdf13",
-"role":"recruiter"
+"role":"student"
 
 }
 
@@ -131,3 +131,36 @@ GET http://localhost:8000/api/v1/jobs/getJobsAdmin
 
 ###
 GET http://localhost:8000/api/v1/jobs/getJobs/67621b4b62f1d23048c9c65e
+
+
+
+//// Applications= applying jobs
+
+###
+
+GET http://localhost:8000/api/v1/application/apply/67621b4b62f1d23048c9c65e
+
+//get applied jobs
+
+
+### 
+GET http://localhost:8000/api/v1/application/get
+
+
+
+/// applicants list
+
+###
+GET http://localhost:8000/api/v1/application/67621b4b62f1d23048c9c65e/applicants
+
+
+
+//// status of the jobs applied
+###
+
+POST http://localhost:8000/api/v1/application/status/67688e3174c11ddad4997e96/update
+Content-Type: application/json
+
+{
+  "status":"accepted"
+}

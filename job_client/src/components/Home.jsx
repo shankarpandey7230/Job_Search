@@ -1,11 +1,17 @@
-import React from 'react';
-import NavBar from './shared/NavBar';
 
+import NavBar from './shared/NavBar';
+import Hero from './Hero';
+import CategoryCarousel from './CategoryCarousel';
+import LatestJobs from './LatestJobs';
+import Footer from './shared/Footer';
 const Home = () => {
   return (
     <div>
       <NavBar />
-      Home
+   <Hero/>
+   <CategoryCarousel/>
+   <LatestJobs/>
+   <Footer/>
     </div>
   );
 };

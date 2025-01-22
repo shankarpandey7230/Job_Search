@@ -11,7 +11,7 @@ const LatestJobs = () => {
 
       <div className="grid grid-cols-3 gap-4 my-5">
         {jobs.slice(0, 6).map((item, index) => (
-          <JobCards />
+          <JobCards key={index} />
         ))}
       </div>
     </div>

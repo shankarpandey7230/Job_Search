@@ -2,7 +2,7 @@ import { useState } from "react";
 import NavBar from "../shared/NavBar";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Button } from "@/components/ui/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { USER_API_END_POINT } from "@/utils/apiCall";

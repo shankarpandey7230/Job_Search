@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "@/redux/authSlice";
 import { Loader2 } from "lucide-react";
+import { setUser } from "../../redux/authSlice";
 
 const Login = () => {
   const [input, setInput] = useState({
@@ -38,6 +39,7 @@ const Login = () => {
       console.log(res.data.user.fullname);
 
       if (res.data.success) {
+        dispatch(setUser(res.data.user));
         navigate("/");
         toast.success(res.data.message);
       }

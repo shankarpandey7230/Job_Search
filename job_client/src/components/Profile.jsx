@@ -6,9 +6,12 @@ import { Mail, Contact } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Label } from "./ui/label";
 import AppliedJobsTable from "./AppliedJobsTable";
+import { useState } from "react";
+import UpdateProfileDialog from "./UpdateProfileDialog";
 
 const skills = ["html", "css", "javascript", "react", "node"];
 const Profile = () => {
+  const [open, setOpen] = useState(false);
   const withResume = true;
   return (
     <div>
@@ -31,7 +34,11 @@ const Profile = () => {
               </p>
             </div>
           </div>
-          <Button className="text-right" variant="outline">
+          <Button
+            onClick={() => setOpen(true)}
+            className="text-right"
+            variant="outline"
+          >
             <Pen />
           </Button>
         </div>
@@ -77,6 +84,7 @@ const Profile = () => {
         {/* Applied jobs table */}
         <AppliedJobsTable />
       </div>
+      <UpdateProfileDialog open={open} setOpen={setOpen} />
     </div>
   );
 };

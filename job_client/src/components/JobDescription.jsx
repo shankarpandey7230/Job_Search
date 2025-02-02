@@ -54,7 +54,7 @@ const JobDescription = () => {
           </span>
         </h1>
         <h1 className="font-bold my-1">
-          Experience:{" "}
+          Experience:
           <span className="pl-4 font-normal text-gray-800">5 yrs</span>
         </h1>
         <h1 className="font-bold my-1">
@@ -66,7 +66,7 @@ const JobDescription = () => {
           <span className="pl-4 font-normal text-gray-800">4</span>
         </h1>
         <h1 className="font-bold my-1">
-          Posted Date:{" "}
+          Posted Date:
           <span className="pl-4 font-normal text-gray-800">29-01-2025</span>
         </h1>
       </div>

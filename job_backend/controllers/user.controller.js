@@ -115,6 +115,8 @@ export const logout = async (req, res) => {
 export const updateProfile = async (req, res) => {
   try {
     const { fullname, email, phoneNumber, bio, skills } = req.body;
+    // console.log(fullname, email, phoneNumber, bio, skills )
+    // console.log(skills);
     const file = req.file;
 
     // Cloudinary will be here
@@ -145,12 +147,15 @@ export const updateProfile = async (req, res) => {
       phoneNumber: user.phoneNumber,
       role: user.role,
       profile: user.profile,
+     
     };
+        console.log(user)
     return res.status(200).json({
       message: 'Profile updated Successfully',
       user,
       success: true,
     });
+
   } catch (error) {
     console.log(error);
   }

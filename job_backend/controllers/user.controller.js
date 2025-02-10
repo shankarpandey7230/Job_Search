@@ -163,7 +163,7 @@ export const updateProfile = async (req, res) => {
             profile: user.profile
         }
       
-console.log(user.profile)
+// console.log(user.profile)
         return res.status(200).json({
             message:"Profile updated successfully.",
             user,

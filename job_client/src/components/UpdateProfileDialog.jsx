@@ -12,7 +12,8 @@ import { Button } from "./ui/button";
 import { Loader2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setUser } from "@/redux/authSlice";
+
+import { setUser } from "../redux/authSlice";
 import { toast } from "sonner";
 import { USER_API_END_POINT } from "../utils/apiCall";
 
@@ -31,6 +32,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
   const dispatch = useDispatch();
 
   const changeEventHandler = (e) => {
+    // console.log(e.target.value);
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
@@ -73,7 +75,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
       setLoading(false);
     }
     setOpen(false);
-    // console.log(input.skills);
+    // console.log(input);
   };
 
   return (
@@ -93,8 +95,8 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                   Name
                 </Label>
                 <Input
-                  id="name"
-                  name="name"
+                  id="fullname"
+                  name="fullname"
                   type="text"
                   value={input.fullname}
                   onChange={changeEventHandler}
@@ -119,8 +121,8 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                   Number
                 </Label>
                 <Input
-                  id="number"
-                  name="number"
+                  id="phoneNumber"
+                  name="phoneNumber"
                   value={input.phoneNumber}
                   onChange={changeEventHandler}
                   className="col-span-3"
@@ -167,8 +169,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
             <DialogFooter>
               {loading ? (
                 <Button className="w-full my-4">
-                  {" "}
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait{" "}
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait
                 </Button>
               ) : (
                 <Button type="submit" className="w-full my-4">

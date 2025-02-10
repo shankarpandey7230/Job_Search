@@ -42,7 +42,8 @@ POST http://localhost:8000/api/v1/user/profile/update
 Content-Type: application/json
 
 {
-  "fullname":"shankar125"
+  "fullname":"shankar125",
+  "email":"shankar12@gmail.com"
  
     
 }

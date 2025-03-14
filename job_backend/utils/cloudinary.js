@@ -10,7 +10,7 @@ cloudinary.config({
     api_secret:process.env.API_SECRET
 });
 console.log('Cloudinary Config:', {
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME
+  cloud_name: process.env.CLOUD_NAME
 
 });
 

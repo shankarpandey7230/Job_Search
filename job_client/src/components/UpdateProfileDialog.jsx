@@ -22,12 +22,12 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
   const { user } = useSelector((store) => store.auth);
 
   const [input, setInput] = useState({
-    fullname: user?.fullname || "",
-    email: user?.email || "",
-    phoneNumber: user?.phoneNumber || "",
-    bio: user?.profile?.bio || "",
-    skills: user?.profile?.skills?.map((skill) => skill) || "",
-    file: user?.profile?.resume || "",
+    fullname: user?.fullname,
+    email: user?.email,
+    phoneNumber: user?.phoneNumber,
+    bio: user?.profile?.bio,
+    skills: user?.profile?.skills?.map((skill) => skill),
+    file: user?.profile?.resume,
   });
   const dispatch = useDispatch();
 
@@ -75,12 +75,12 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
       setLoading(false);
     }
     setOpen(false);
-    // console.log(input);
+    console.log(input);
   };
 
   return (
     <div>
-      <Dialog open={open}>
+      <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent
           className="sm:max-w-[425px]"
           onInteractOutside={() => setOpen(false)}

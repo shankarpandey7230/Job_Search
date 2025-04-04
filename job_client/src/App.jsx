@@ -9,6 +9,7 @@ import Jobs from "./components/Jobs";
 import Browse from "./components/Browse";
 import Profile from "./components/Profile";
 import JobDescription from "./components/JobDescription";
+import Companies from "./components/admin/Companies";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <Route path="/description/:id" element={<JobDescription />} />
         <Route path="/browse" element={<Browse />} />
         <Route path="/profile" element={<Profile />} />
+        {/* routes for admins  */}
+        <Route path="admin/companies" element={<Companies />}></Route>
       </Routes>
     </>
   );

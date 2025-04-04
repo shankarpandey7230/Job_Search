@@ -19,6 +19,7 @@ const Login = () => {
     password: "",
     role: "",
   });
+  // console.log(input);
   const { loading } = useSelector((store) => store.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ const Login = () => {
         },
         withCredentials: true,
       });
-      console.log(res.data.user.fullname);
+      // console.log(res.data.user.fullname);
 
       if (res.data.success) {
         dispatch(setUser(res.data.user));
@@ -57,6 +58,7 @@ const Login = () => {
         <form
           onSubmit={submitHandler}
           className="w-1/2 border rounded-md p-6 my-10"
+          encType="multipart/form-data"
         >
           <h1 className="font-bold text-xl mb-5 text-center">Login</h1>
 

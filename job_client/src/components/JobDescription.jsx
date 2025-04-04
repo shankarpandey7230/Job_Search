@@ -10,11 +10,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSingleJob } from "../redux/jobSlice";
 
 const JobDescription = () => {
-  const isApplied = true;
   const params = useParams();
   const jobId = params.id;
   const { singleJob } = useSelector((store) => store.job);
   const { user } = useSelector((store) => store.auth);
+  const isApplied = singleJob?.applications?.some(
+    (application) => application.applicant === user?._id || false
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchSingleJob = async () => {
@@ -44,7 +46,7 @@ const JobDescription = () => {
               {singleJob?.jobType}
             </Badge>
             <Badge className={"text-[#7209b7] font-bold"} variant="ghost">
-              {singleJob?.salary}
+              {singleJob?.salary}K
             </Badge>
           </div>
         </div>
@@ -90,16 +92,20 @@ const JobDescription = () => {
         <h1 className="font-bold my-1">
           Salary:
           <span className="pl-4 font-normal text-gray-800">
-            {singleJob?.salary}
+            {singleJob?.salary}K
           </span>
         </h1>
         <h1 className="font-bold my-1">
           Total Applicants:
-          <span className="pl-4 font-normal text-gray-800">4</span>
+          <span className="pl-4 font-normal text-gray-800">
+            {singleJob?.applications?.length}
+          </span>
         </h1>
         <h1 className="font-bold my-1">
           Posted Date:
-          <span className="pl-4 font-normal text-gray-800">29-01-2025</span>
+          <span className="pl-4 font-normal text-gray-800">
+            {singleJob?.createdAt.split("T")[0]}
+          </span>
         </h1>
       </div>
     </div>

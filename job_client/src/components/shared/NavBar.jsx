@@ -1,6 +1,6 @@
 import React from "react";
 import { LogOut, User2 } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import {
   Popover,
   PopoverContent,
@@ -47,7 +47,7 @@ const NavBar = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="jobs">Jobs</Link>
+              <Link to="/jobs">Jobs</Link>
             </li>
             <li>
               <Link to="/browse">Browse</Link>

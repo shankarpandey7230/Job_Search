@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -19,6 +20,7 @@ import { USER_API_END_POINT } from "../utils/apiCall";
 
 const UpdateProfileDialog = ({ open, setOpen }) => {
   const [loading, setLoading] = useState(false);
+
   const { user } = useSelector((store) => store.auth);
 
   const [input, setInput] = useState({
@@ -84,11 +86,13 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         <DialogContent
           className="sm:max-w-[425px]"
           onInteractOutside={() => setOpen(false)}
+          aria-describedby="profile-dialog-description"
         >
+          <DialogDescription></DialogDescription>
           <DialogHeader>
             <DialogTitle>Update Profile</DialogTitle>
           </DialogHeader>
-          <form onSubmit={submitHandler}>
+          <form onSubmit={submitHandler} encType="multipart/form-data">
             <div className="grid gap-4 py-4">
               <div className="grid grid-cols-4 items-center gap-4">
                 <Label htmlFor="name" className="text-right">
@@ -160,6 +164,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                   id="file"
                   name="file"
                   type="file"
+                  // value={input.file}
                   accept="application/pdf"
                   onChange={fileChangeHandler}
                   className="col-span-3"

@@ -11,6 +11,7 @@ import UpdateProfileDialog from "./UpdateProfileDialog";
 import { useSelector } from "react-redux";
 // import useGetAppliedJobs from "@/hooks/useGetAppliedJobs";
 import NavBar from "./shared/NavBar";
+import AppliedJobsTable from "./AppliedJobsTable";
 
 // const skills = ["Html", "Css", "Javascript", "Reactjs"]
 const isResume = true;
@@ -83,6 +84,7 @@ const Profile = () => {
       <div className="max-w-4xl mx-auto bg-white rounded-2xl">
         <h1 className="font-bold text-lg my-5">Applied Jobs</h1>
         {/* Applied Job Table   */}
+        <AppliedJobsTable />
         {/* <AppliedJobTable /> */}
       </div>
       <UpdateProfileDialog open={open} setOpen={setOpen} />

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const jobSchema = new mongoose.Schema(
   {
@@ -29,7 +29,7 @@ const jobSchema = new mongoose.Schema(
     },
     jobType: {
       type: String,
-      required: true, 
+      required: true,
     },
     position: {
       type: Number,
@@ -37,22 +37,22 @@ const jobSchema = new mongoose.Schema(
     },
     company: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Company',
+      ref: "Company",
       required: true,
     },
     created_by: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
       required: true,
     },
     applications: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Application',
+        ref: "Application",
       },
     ],
   },
   { timestamps: true }
 );
 
-export const Job = mongoose.model('Job', jobSchema);
+export const Job = mongoose.model("Job", jobSchema);

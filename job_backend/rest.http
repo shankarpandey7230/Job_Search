@@ -43,7 +43,7 @@ Content-Type: application/json
 
 {
   "fullname":"shankar125",
-  "email":"shankar12@gmail.com"
+  "email":"shankar162@gmail.com"
  
     
 }
@@ -71,18 +71,18 @@ GET  http://localhost:8000/api/v1/company/getComp
 //Get company by Id
 
 ###
-GET http://localhost:8000/api/v1/company/getComp/675124ec8eda91c0ef7b302a
+GET http://localhost:8000/api/v1/company/getComp/67dee2ae2ca4408d918037ca
 
 
 //update Company
 
 ###
-PUT http://localhost:8000/api/v1/company/update/675124ec8eda91c0ef7b302a
+PUT http://localhost:8000/api/v1/company/update/67dee2ae2ca4408d918037ca
 Content-Type: application/json
 
 
 {
-  "name":"Shankar Software"
+  "name":"Shankar Software Company"
 }
 
 
@@ -104,7 +104,7 @@ Content-Type: application/json
   "jobType":"Full Time",
   "experience":2,
   "position":12,
-  "companyId":"675124ec8eda91c0ef7b302a"
+  "companyId":"67dee2ae2ca4408d918037ca"
   
 
 
@@ -131,7 +131,7 @@ GET http://localhost:8000/api/v1/jobs/getJobsAdmin
 ////Individual jobs
 
 ###
-GET http://localhost:8000/api/v1/jobs/getJobs/67621b4b62f1d23048c9c65e
+GET http://localhost:8000/api/v1/jobs/getJobs/67deefad301f39239c35855a
 
 
 
@@ -139,7 +139,7 @@ GET http://localhost:8000/api/v1/jobs/getJobs/67621b4b62f1d23048c9c65e
 
 ###
 
-GET http://localhost:8000/api/v1/application/apply/67621b4b62f1d23048c9c65e
+GET http://localhost:8000/api/v1/application/apply/67deefad301f39239c35855a
 
 //get applied jobs
 
@@ -152,14 +152,14 @@ GET http://localhost:8000/api/v1/application/get
 /// applicants list
 
 ###
-GET http://localhost:8000/api/v1/application/67621b4b62f1d23048c9c65e/applicants
+GET http://localhost:8000/api/v1/application/67deefad301f39239c35855a/applicants
 
 
 
 //// status of the jobs applied
 ###
 
-POST http://localhost:8000/api/v1/application/status/67688e3174c11ddad4997e96/update
+POST http://localhost:8000/api/v1/application/status/67deefad301f39239c35855a/update
 Content-Type: application/json
 
 {

@@ -22,6 +22,7 @@ const Signup = () => {
     role: "",
     file: "",
   });
+  console.log(input);
   const { loading, user } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -47,7 +48,9 @@ const Signup = () => {
     try {
       dispatch(setLoading(true));
       const res = await axios.post(`${USER_API_END_POINT}/register`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
         withCredentials: true,
       });
       if (res.data.success) {
@@ -74,6 +77,7 @@ const Signup = () => {
         <form
           onSubmit={submitHandler}
           className="w-1/2 border border-gray-200 rounded-md p-4 my-10"
+          encType="multipart/form-data"
         >
           <h1 className="font-bold text-xl mb-5">Sign Up</h1>
           <div className="my-2">
@@ -83,7 +87,7 @@ const Signup = () => {
               value={input.fullname}
               name="fullname"
               onChange={changeEventHandler}
-              placeholder="patel"
+              placeholder="shankar"
             />
           </div>
           <div className="my-2">
@@ -93,7 +97,7 @@ const Signup = () => {
               value={input.email}
               name="email"
               onChange={changeEventHandler}
-              placeholder="patel@gmail.com"
+              placeholder="shankar@gmail.com"
             />
           </div>
           <div className="my-2">
@@ -153,7 +157,6 @@ const Signup = () => {
           </div>
           {loading ? (
             <Button className="w-full my-4">
-              {" "}
               <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait
             </Button>
           ) : (
@@ -162,7 +165,7 @@ const Signup = () => {
             </Button>
           )}
           <span className="text-sm">
-            Already have an account?{" "}
+            Already have an account?
             <Link to="/login" className="text-blue-600">
               Login
             </Link>

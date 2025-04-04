@@ -11,8 +11,8 @@ const Browse = () => {
           Search Results({randomJobs.length})
         </h1>
         <div className=" sm:p-5 md:p-4 grid grid-cols-3 gap-4">
-          {randomJobs.map((job, index) => {
-            return <Job key={index} />;
+          {randomJobs.map((job, id) => {
+            return <Job key={id} />;
           })}
         </div>
       </div>

@@ -10,6 +10,8 @@ import Browse from "./components/Browse";
 import Profile from "./components/Profile";
 import JobDescription from "./components/JobDescription";
 import Companies from "./components/admin/Companies";
+import CreateCompany from "./components/admin/CreateCompany";
+import CompanySetup from "./components/admin/CompanySetup";
 
 function App() {
   return (
@@ -23,7 +25,9 @@ function App() {
         <Route path="/browse" element={<Browse />} />
         <Route path="/profile" element={<Profile />} />
         {/* routes for admins  */}
-        <Route path="admin/companies" element={<Companies />}></Route>
+        <Route path="admin/companies" element={<Companies />} />
+        <Route path="admin/companies/create" element={<CreateCompany />} />
+        <Route path="admin/companies/:id" element={<CompanySetup />} />
       </Routes>
     </>
   );

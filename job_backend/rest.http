@@ -22,9 +22,9 @@ POST http://localhost:8000/api/v1/user/login
 Content-Type: application/json
 
 {
-"email":"gyan12@gmail.com",
-"password":"asdf13",
-"role":"student"
+"email":"purna123@gmail.com",
+"password":"asdf",
+"role":"recruiter"
 
 }
 
@@ -60,7 +60,7 @@ POST http://localhost:8000/api/v1/company/register
 Content-Type: application/json
 
 {
-  "companyName":"Shankar Pvt Ltd"
+  "companyName":"Shankar And Bikram Ltd"
 }
 
 #Get Company

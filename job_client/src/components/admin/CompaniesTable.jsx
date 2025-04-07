@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Table,
   TableBody,
@@ -14,11 +13,28 @@ import { Edit2 } from "lucide-react";
 import { MoreHorizontal } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const CompaniesTable = () => {
   const navigate = useNavigate();
-  const { companies } = useSelector((store) => store.company);
-  console.log(companies);
+  const { companies, searchCompany } = useSelector((store) => store.company);
+  const [filterCompany, setFilterCompany] = useState(companies);
+  // console.log(companies);
+  useEffect(() => {
+    const filteredCompany =
+      companies.length >= 0 &&
+      companies.filter((company) => {
+        if (!searchCompany) {
+          return true;
+        }
+        return company?.name
+          ?.toLowerCase()
+          .includes(searchCompany.toLowerCase());
+      });
+    setFilterCompany(filteredCompany);
+  }, [companies, searchCompany]);
+
   return (
     <Table>
       <TableCaption>A list of your recent registered companies</TableCaption>
@@ -31,7 +47,7 @@ const CompaniesTable = () => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {companies?.map((company, i) => (
+        {filterCompany?.map((company, i) => (
           <tr key={company._id}>
             <TableCell>
               <Avatar>

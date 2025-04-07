@@ -8,11 +8,12 @@ import { setCompanies } from "../redux/companySlice";
 const useGetAllCompanies = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    const fetchAllCompanies = async () => {
+    const fetchCompanies = async () => {
       try {
         const res = await axios.get(`${COMPANY_API_END_POINT}/getComp`, {
           withCredentials: true,
         });
+        console.log("called");
         if (res.data.success) {
           dispatch(setCompanies(res.data.companies));
         }
@@ -20,7 +21,7 @@ const useGetAllCompanies = () => {
         console.log(error);
       }
     };
-    fetchAllCompanies();
+    fetchCompanies();
   }, []);
 };
 

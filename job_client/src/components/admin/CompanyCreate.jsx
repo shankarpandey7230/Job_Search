@@ -1,26 +1,20 @@
 import React, { useState } from "react";
-import NavBar from "../shared/NavBar";
+import Navbar from "../shared/Navbar";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
-import axios from "../../../node_modules/axios/index";
+import axios from "axios";
 import { COMPANY_API_END_POINT } from "../../utils/apiCall";
 import { toast } from "sonner";
 import { useDispatch } from "react-redux";
-import { setSingleCompany } from "../../redux/companySlice";
+import { setSingleCompany } from "@/redux/companySlice";
 
-const CreateCompany = () => {
+const CompanyCreate = () => {
   const navigate = useNavigate();
-  const [companyName, setCompanyName] = useState("");
+  const [companyName, setCompanyName] = useState();
   const dispatch = useDispatch();
   const registerNewCompany = async () => {
-    // console.log("Company Name:", companyName);
-    if (!companyName.trim()) {
-      toast.error("Please enter a company name.");
-      return;
-    }
-
     try {
       const res = await axios.post(
         `${COMPANY_API_END_POINT}/register`,
@@ -44,7 +38,7 @@ const CreateCompany = () => {
   };
   return (
     <div>
-      <NavBar />
+      <Navbar />
       <div className="max-w-4xl mx-auto">
         <div className="my-10">
           <h1 className="font-bold text-2xl">Your Company Name</h1>
@@ -75,4 +69,4 @@ const CreateCompany = () => {
   );
 };
 
-export default CreateCompany;
+export default CompanyCreate;

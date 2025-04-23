@@ -1,14 +1,16 @@
-import NavBar from "./shared/NavBar";
-import Hero from "./Hero";
+import React, { useEffect } from "react";
+import Navbar from "./shared/Navbar";
+
 import CategoryCarousel from "./CategoryCarousel";
 import LatestJobs from "./LatestJobs";
 import Footer from "./shared/Footer";
-import useGetAllJobs from "../hooks/useGetAllJobs";
+import useGetAllJobs from "@/hooks/useGetAllJobs";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Hero from "./Hero";
+
 const Home = () => {
-  // useGetAllJobs();
+  useGetAllJobs();
   const { user } = useSelector((store) => store.auth);
   const navigate = useNavigate();
   useEffect(() => {
@@ -17,8 +19,8 @@ const Home = () => {
     }
   }, []);
   return (
-    <div className="p-5 sm:p-3">
-      <NavBar />
+    <div>
+      <Navbar />
       <Hero />
       <CategoryCarousel />
       <LatestJobs />

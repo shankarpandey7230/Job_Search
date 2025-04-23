@@ -9,7 +9,7 @@ import { Label } from "./ui/label";
 // import AppliedJobTable from "./AppliedJobTable";
 import UpdateProfileDialog from "./UpdateProfileDialog";
 import { useSelector } from "react-redux";
-// import useGetAppliedJobs from "@/hooks/useGetAppliedJobs";
+import useGetAllJobs from "../hooks/useGetAllJobs";
 import NavBar from "./shared/NavBar";
 import AppliedJobsTable from "./AppliedJobsTable";
 
@@ -17,7 +17,7 @@ import AppliedJobsTable from "./AppliedJobsTable";
 const isResume = true;
 
 const Profile = () => {
-  // useGetAppliedJobs();
+  useGetAllJobs();
   const [open, setOpen] = useState(false);
   const { user } = useSelector((store) => store.auth);
 

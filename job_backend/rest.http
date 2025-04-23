@@ -60,18 +60,18 @@ POST http://localhost:8000/api/v1/company/register
 Content-Type: application/json
 
 {
-  "companyName":"Shankar And Bikram Ltd"
+  "companyName":"Shankar And Bikram pa Ltd"
 }
 
 #Get Company
 ###
-GET  http://localhost:8000/api/v1/company/getComp
+GET  http://localhost:8000/api/v1/company/get
 
 
 //Get company by Id
 
 ###
-GET http://localhost:8000/api/v1/company/getComp/67dee2ae2ca4408d918037ca
+GET http://localhost:8000/api/v1/company/get/67dee2ae2ca4408d918037ca
 
 
 //update Company
@@ -92,22 +92,20 @@ Content-Type: application/json
 ////Jobs
 
 #####
-POST  http://localhost:8000/api/v1/jobs/postJobs
+POST  http://localhost:8000/api/v1/jobs/post
 Content-Type: application/json
 
+
 {
-  "title":"Developer",
-  "description":"Developer with good working attitude",
-  "requirements":"React, Node, MongoDb",
-  "salary":"60000",
-  "location":"Tasmanina",
-  "jobType":"Full Time",
-  "experience":2,
-  "position":12,
-  "companyId":"67dee2ae2ca4408d918037ca"
-  
-
-
+      "title":"Developer",
+      "description":"REARTE ",
+      "requirements":"REact,HTML",
+      "salary":5000,
+      "location":"Tasmania",
+      "jobType":"Part-time",
+      "experience":2,
+      "position":2,
+      "companyId":"6803e023fc0f1da571cd2a41"
 
 
 }
@@ -115,14 +113,14 @@ Content-Type: application/json
 ///Get all jobs
 ###
 
-GET http://localhost:8000/api/v1/jobs/getJobs
+GET http://localhost:8000/api/v1/jobs/get
 
 
 ///Jobs Posted by Admins
 
 ###
 
-GET http://localhost:8000/api/v1/jobs/getJobsAdmin
+GET http://localhost:8000/api/v1/jobs/getadminjobs
 
 
 
@@ -131,7 +129,7 @@ GET http://localhost:8000/api/v1/jobs/getJobsAdmin
 ////Individual jobs
 
 ###
-GET http://localhost:8000/api/v1/jobs/getJobs/67deefad301f39239c35855a
+GET http://localhost:8000/api/v1/jobs/get/67deefad301f39239c35855a
 
 
 

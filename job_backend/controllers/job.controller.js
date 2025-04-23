@@ -1,6 +1,7 @@
-// Only recruiter can post the job
 import { Job } from "../models/job.model.js";
-export const JobPost = async (req, res) => {
+
+// admin post  job
+export const postJob = async (req, res) => {
   try {
     const {
       title,
@@ -14,7 +15,17 @@ export const JobPost = async (req, res) => {
       companyId,
     } = req.body;
     const userId = req.id;
-    // console.log(userId)
+    console.log(
+      title,
+      description,
+      requirements,
+      salary,
+      location,
+      jobType,
+      experience,
+      position,
+      companyId
+    );
     if (
       !title ||
       !description ||
@@ -27,11 +38,10 @@ export const JobPost = async (req, res) => {
       !companyId
     ) {
       return res.status(400).json({
-        message: "Please fill all the required fields",
+        message: "Something is missing.",
         success: false,
       });
     }
-
     const job = await Job.create({
       title,
       description,
@@ -45,7 +55,7 @@ export const JobPost = async (req, res) => {
       created_by: userId,
     });
     return res.status(201).json({
-      message: "Job created Successfully",
+      message: "New job created successfully.",
       job,
       success: true,
     });
@@ -53,10 +63,8 @@ export const JobPost = async (req, res) => {
     console.log(error);
   }
 };
-
-// for job seekers
-
-export const getAllJobsListed = async (req, res) => {
+// student k liye
+export const getAllJobs = async (req, res) => {
   try {
     const keyword = req.query.keyword || "";
     const query = {
@@ -72,7 +80,7 @@ export const getAllJobsListed = async (req, res) => {
       .sort({ createdAt: -1 });
     if (!jobs) {
       return res.status(404).json({
-        message: "No jobs found ",
+        message: "Jobs not found.",
         success: false,
       });
     }
@@ -84,7 +92,7 @@ export const getAllJobsListed = async (req, res) => {
     console.log(error);
   }
 };
-// job seekers
+// student
 export const getJobById = async (req, res) => {
   try {
     const jobId = req.params.id;
@@ -93,25 +101,23 @@ export const getJobById = async (req, res) => {
     });
     if (!job) {
       return res.status(404).json({
-        message: "No jobs found ",
+        message: "Jobs not found.",
         success: false,
       });
     }
-    return res.status(200).json({
-      job,
-      success: true,
-    });
+    return res.status(200).json({ job, success: true });
   } catch (error) {
     console.log(error);
   }
 };
-
-// recruiters or admin posting jobs number
-
-export const getJobsByAdmin = async (req, res) => {
+// admin kitne job create kra hai abhi tk
+export const getAdminJobs = async (req, res) => {
   try {
     const adminId = req.id;
-    const jobs = await Job.find({ created_by: adminId });
+    const jobs = await Job.find({ created_by: adminId }).populate({
+      path: "company",
+      createdAt: -1,
+    });
     if (!jobs) {
       return res.status(404).json({
         message: "Jobs not found.",

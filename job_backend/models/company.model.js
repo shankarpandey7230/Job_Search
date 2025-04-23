@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const companySchema = new mongoose.Schema(
   {
     name: {
@@ -16,7 +17,7 @@ const companySchema = new mongoose.Schema(
       type: String,
     },
     logo: {
-      type: String, // url to company logo
+      type: String, // URL to company logo
     },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -24,9 +25,6 @@ const companySchema = new mongoose.Schema(
       required: true,
     },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
-
 export const Company = mongoose.model("Company", companySchema);

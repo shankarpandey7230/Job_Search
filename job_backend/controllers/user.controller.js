@@ -105,7 +105,6 @@ export const login = async (req, res) => {
         message: `Welcome back ${user.fullname}`,
         user,
         success: true,
-        token,
       });
   } catch (error) {
     console.log(error);
@@ -124,9 +123,9 @@ export const logout = async (req, res) => {
 export const updateProfile = async (req, res) => {
   try {
     const { fullname, email, phoneNumber, bio, skills } = req.body;
-    const file = req.file;
 
-    // // cloudinary here
+    const file = req.file;
+    // cloudinary ayega idhar
     const fileUri = getDataUri(file);
     const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
 
@@ -149,25 +148,23 @@ export const updateProfile = async (req, res) => {
     if (phoneNumber) user.phoneNumber = phoneNumber;
     if (bio) user.profile.bio = bio;
     if (skills) user.profile.skills = skillsArray;
-    await user.save();
-
-    // new user with updated data
-    user = {
-      _id: user._id,
-      fullname: user.fullname,
-      email: user.email,
-      phoneNumber: user.phoneNumber,
-      role: user.role,
-      bio: user.profile.bio,
-      skillsArray: user.profile.skills,
-      profile: user.profile,
-    };
 
     // resume comes later here...
     if (cloudResponse) {
       user.profile.resume = cloudResponse.secure_url; // save the cloudinary url
       user.profile.resumeOriginalName = file.originalname; // Save the original file name
     }
+
+    await user.save();
+
+    user = {
+      _id: user._id,
+      fullname: user.fullname,
+      email: user.email,
+      phoneNumber: user.phoneNumber,
+      role: user.role,
+      profile: user.profile,
+    };
 
     return res.status(200).json({
       message: "Profile updated successfully.",

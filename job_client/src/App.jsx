@@ -15,6 +15,7 @@ import AdminJobs from "./components/admin/AdminJobs";
 import CompanyCreate from "./components/admin/CompanyCreate";
 import PostJob from "./components/admin/PostJob";
 import Applicants from "./components/admin/Applicants";
+import ProtectedRoute from "./components/admin/ProtectedRoute";
 
 function App() {
   return (
@@ -28,12 +29,55 @@ function App() {
         <Route path="/browse" element={<Browse />} />
         <Route path="/profile" element={<Profile />} />
         {/* routes for admins  */}
-        <Route path="/admin/companies" element={<Companies />} />
-        <Route path="/admin/companies/create" element={<CompanyCreate />} />
-        <Route path="/admin/companies/:id" element={<CompanySetup />} />
-        <Route path="/admin/jobs" element={<AdminJobs />} />
-        <Route path="admin/jobs/create" element={<PostJob />} />
-        <Route path="admin/jobs/:id/applicants" element={<Applicants />} />
+
+        <Route
+          path="/admin/companies"
+          element={
+            <ProtectedRoute>
+              <Companies />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/companies/create"
+          element={
+            <ProtectedRoute>
+              <CompanyCreate />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/companies/:id"
+          element={
+            <ProtectedRoute>
+              <CompanySetup />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/jobs"
+          element={
+            <ProtectedRoute>
+              <AdminJobs />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="admin/jobs/create"
+          element={
+            <ProtectedRoute>
+              <PostJob />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="admin/jobs/:id/applicants"
+          element={
+            <ProtectedRoute>
+              <Applicants />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   );

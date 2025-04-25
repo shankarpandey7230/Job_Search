@@ -13,6 +13,7 @@ import Companies from "./components/admin/Companies";
 import CompanySetup from "./components/admin/CompanySetup";
 import AdminJobs from "./components/admin/AdminJobs";
 import CompanyCreate from "./components/admin/CompanyCreate";
+import PostJob from "./components/admin/PostJob";
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
         <Route path="/admin/companies/create" element={<CompanyCreate />} />
         <Route path="/admin/companies/:id" element={<CompanySetup />} />
         <Route path="/admin/jobs" element={<AdminJobs />} />
-        {/* <Route path="admin/jobs/create" element={ } /> */}
+        <Route path="admin/jobs/create" element={<PostJob />} />
       </Routes>
     </>
   );

@@ -97,15 +97,15 @@ Content-Type: application/json
 
 
 {
-      "title":"Developer",
-      "description":"REARTE ",
-      "requirements":"REact,HTML",
-      "salary":5000,
+      "title":" Full STack Developer",
+      "description":"MERN  ",
+      "requirements":"REact,HTML,Node, Express, MongoDB",
+      "salary":50000,
       "location":"Tasmania",
-      "jobType":"Part-time",
+      "jobType":"Full-time",
       "experience":2,
-      "position":2,
-      "companyId":"6803e023fc0f1da571cd2a41"
+      "position":5,
+      "companyId":"6803e9cc258dc903e6ac2b7d"
 
 
 }

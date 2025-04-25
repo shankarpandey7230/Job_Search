@@ -1,4 +1,6 @@
 import { Badge } from "./ui/badge";
+
+import { useSelector } from "react-redux";
 import {
   Table,
   TableBody,
@@ -9,8 +11,9 @@ import {
   TableRow,
 } from "./ui/table";
 
-const appliedJobs = ["FrontEnd", "Backend", "FullStack"];
+// const appliedJobs = ["FrontEnd", "Backend", "FullStack"];
 const AppliedJobsTable = () => {
+  const { allAppliedJobs } = useSelector((store) => store.job);
   return (
     <div>
       <Table>
@@ -25,17 +28,27 @@ const AppliedJobsTable = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {appliedJobs.length <= 0 ? (
+          {allAppliedJobs.length <= 0 ? (
             <span>You have not applied any jobs till now</span>
           ) : (
-            appliedJobs.map((jobapplied, index) => {
+            allAppliedJobs.map((appliedJob) => {
               return (
-                <TableRow key={index}>
-                  <TableCell>2020</TableCell>
-                  <TableCell>FrontEnd</TableCell>
-                  <TableCell>Neon</TableCell>
+                <TableRow key={appliedJob._id}>
+                  <TableCell>{appliedJob?.createdAt?.split("T")[0]}</TableCell>
+                  <TableCell>{appliedJob?.job?.title}</TableCell>
+                  <TableCell>{appliedJob.job?.company?.name}</TableCell>
                   <TableCell className="text-right">
-                    <Badge>Success</Badge>
+                    <Badge
+                      className={`${
+                        appliedJob?.status === "rejected"
+                          ? "bg-red-400"
+                          : appliedJob.status === "pending"
+                          ? "bg-gray-400"
+                          : "bg-green-400"
+                      }`}
+                    >
+                      {appliedJob.status.toUpperCase()}
+                    </Badge>
                   </TableCell>
                 </TableRow>
               );

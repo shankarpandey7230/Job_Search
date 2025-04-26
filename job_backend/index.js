@@ -30,7 +30,7 @@ const __dirname = path.resolve();
 
 // User API call
 app.use("/api/v1/user", userRoute);
-app.use("/api/v1/company", companyRoute);
+app.use("/api/v1/companies", companyRoute);
 app.use("/api/v1/jobs", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 

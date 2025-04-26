@@ -21,6 +21,7 @@ const AdminJobsTable = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log("called");
     const filteredJobs = allAdminJobs.filter((job) => {
       if (!searchJobByText) {
         return true;
@@ -57,9 +58,7 @@ const AdminJobsTable = () => {
                   </PopoverTrigger>
                   <PopoverContent className="w-32">
                     <div
-                      onClick={() =>
-                        navigate(`/admin/companies/${job.company._id}`)
-                      }
+                      onClick={() => navigate(`/admin/companies/${job._id}`)}
                       className="flex items-center gap-2 w-fit cursor-pointer"
                     >
                       <Edit2 className="w-4" />

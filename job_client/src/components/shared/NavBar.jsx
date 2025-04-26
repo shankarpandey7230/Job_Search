@@ -89,7 +89,6 @@ const NavBar = () => {
               </PopoverTrigger>
               <PopoverContent className="w-80">
                 <div className="flex gap-4 space-y-2">
-                  {/* {console.log(1000, user?.profile?.profilePhoto)} */}
                   <Avatar className="cursor-pointer">
                     <AvatarImage
                       src={user?.profile?.profilePhoto}

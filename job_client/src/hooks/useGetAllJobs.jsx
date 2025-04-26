@@ -14,12 +14,9 @@ const useGetAllJobs = () => {
           `${JOB_API_END_POINT}/get?keyword=${searchedQuery}`,
           {
             withCredentials: true,
-            // headers: {
-            //   Authorization: `Bearer ${token}`,
-            // },
           }
         );
-        // console.log(res);
+
         if (res.data.success) {
           dispatch(setAllJobs(res.data.jobs));
         }

@@ -34,7 +34,6 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
   const dispatch = useDispatch();
 
   const changeEventHandler = (e) => {
-    // console.log(e.target.value);
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
@@ -77,7 +76,6 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
       setLoading(false);
     }
     setOpen(false);
-    console.log(input);
   };
 
   return (

@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --env-file=.env job_backend/index.js",
+    "dev": "nodemon  job_backend/index.js",
     "build": "npm install && npm install --prefix job_client && npm run build --prefix job_client",
-    "start": "nodemon --env-file=.env job_backend/index.js"
+    "start": "nodemon  job_backend/index.js"
   },
   "author": "",
   "license": "ISC",

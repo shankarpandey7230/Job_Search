@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true })); // is used  to parse incoming r
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: "https://job-search-kyjr.onrender.com",
+  origin: "https://job-search-kyjr.onrender.com/",
 
   credentials: true,
 };
@@ -30,7 +30,7 @@ const __dirname = path.resolve();
 
 // User API call
 app.use("/api/v1/user", userRoute);
-app.use("/api/v1/companies", companyRoute);
+app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/jobs", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 

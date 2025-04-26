@@ -7,6 +7,7 @@ import userRoute from "./routes/user.route.js";
 import companyRoute from "./routes/company.route.js";
 import jobRoute from "./routes/job.route.js";
 import applicationRoute from "./routes/application.route.js";
+import path from "path";
 const app = express();
 dotenv.config({});
 
@@ -25,11 +26,18 @@ const corsOptions = {
 app.use(cors(corsOptions));
 const PORT = process.env.PORT || 3000;
 
+const __dirname = path.resolve();
+
 // User API call
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/jobs", jobRoute);
 app.use("/api/v1/application", applicationRoute);
+
+app.use(express.static(path.join(__dirname, "/job_client/dist")));
+app.get("*", (_, res) => {
+  res.sendFile(path.resolve(__dirname, "job_client", "dist", "index.html"));
+});
 
 app.listen(PORT, (req, res) => {
   connectDB();

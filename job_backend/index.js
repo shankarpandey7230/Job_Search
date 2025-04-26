@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true })); // is used  to parse incoming r
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: "https://job-search-qt3j.onrender.com/",
+  origin: "http://localhost:5173",
 
   credentials: true,
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NavBar from "../shared/NavBar";
+import Navbar from "../shared/Navbar";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
@@ -71,7 +71,7 @@ const PostJob = () => {
 
   return (
     <div>
-      <NavBar />
+      <Navbar />
       <div className="flex items-center justify-center w-screen my-5">
         <form
           onSubmit={submitHandler}

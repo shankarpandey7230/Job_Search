@@ -47,7 +47,7 @@ function App() {
           }
         />
         <Route
-          path="/admin/companies/:id"
+          path="/admin/companies/id"
           element={
             <ProtectedRoute>
               <CompanySetup />

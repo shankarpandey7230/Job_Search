@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../shared/Navbar";
+import NavBar from "../shared/NavBar";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { RadioGroup } from "../ui/radio-group";
@@ -55,7 +55,7 @@ const Login = () => {
   }, []);
   return (
     <div>
-      <Navbar />
+      <NavBar />
       <div className="flex items-center justify-center max-w-7xl mx-auto">
         <form
           onSubmit={submitHandler}

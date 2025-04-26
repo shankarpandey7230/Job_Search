@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../shared/Navbar";
+
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { RadioGroup } from "../ui/radio-group";
@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "@/redux/authSlice";
 import { Loader2 } from "lucide-react";
 import { USER_API_END_POINT } from "../../utils/apiCall";
+import NavBar from "../shared/NavBar";
 
 const Signup = () => {
   const [input, setInput] = useState({
@@ -72,7 +73,7 @@ const Signup = () => {
   }, []);
   return (
     <div>
-      <Navbar />
+      <NavBar />
       <div className="flex items-center justify-center max-w-7xl mx-auto">
         <form
           onSubmit={submitHandler}

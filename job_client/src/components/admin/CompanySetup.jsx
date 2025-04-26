@@ -10,9 +10,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
 import { useSelector } from "react-redux";
 import useGetCompanyById from "@/hooks/useGetCompanyById";
+import useGetAllCompanies from "../../hooks/useGetAllCompanies";
 
 const CompanySetup = () => {
   const params = useParams();
+
   useGetCompanyById(params.id);
   const [input, setInput] = useState({
     name: "",

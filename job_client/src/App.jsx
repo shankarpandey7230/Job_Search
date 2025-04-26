@@ -63,7 +63,7 @@ function App() {
           }
         />
         <Route
-          path="/admin/jobs/create"
+          path="admin/jobs/create"
           element={
             <ProtectedRoute>
               <PostJob />
@@ -71,7 +71,7 @@ function App() {
           }
         />
         <Route
-          path="/admin/jobs/:id/applicants"
+          path="admin/jobs/:id/applicants"
           element={
             <ProtectedRoute>
               <Applicants />

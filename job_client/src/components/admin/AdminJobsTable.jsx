@@ -67,7 +67,7 @@ const AdminJobsTable = () => {
                     </div>
                     <div
                       onClick={() =>
-                        navigate(`/admin/jobs/:${company._id}/applicants`)
+                        navigate(`/admin/jobs/:${job._id}/applicants`)
                       }
                       className="flex items-center w-fit gap-2 cursor-pointer mt-2"
                     >

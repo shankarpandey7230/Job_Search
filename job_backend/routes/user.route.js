@@ -7,7 +7,6 @@ import {
 } from "../controllers/user.controller.js";
 import isAuthenticated from "../middlewares/isAuthenticated.js";
 import { singleUpload } from "../middlewares/Multer.js";
-import { is } from "../../node_modules/@types/whatwg-url/lib/URL.d";
 
 const router = express.Router();
 

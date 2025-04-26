@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/Button";
+import { Button } from "./ui/button";
 import { Search } from "lucide-react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";

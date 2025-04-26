@@ -7,7 +7,7 @@ import useGetAllJobs from "@/hooks/useGetAllJobs";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Hero from "./Hero";
-import NavBar from "./shared/Navbar";
+import NavBar from "./shared/NavBar";
 
 const Home = () => {
   useGetAllJobs();

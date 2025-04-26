@@ -10,7 +10,7 @@ import NavBar from "../shared/NavBar";
 import { toast } from "sonner";
 const Applicants = () => {
   const params = useParams();
-  const id = params.id;
+
   const dispatch = useDispatch();
   const { applicants } = useSelector((store) => store.application);
 
@@ -19,7 +19,7 @@ const Applicants = () => {
       try {
         axios.defaults.withCredentials = true;
         const res = await axios.get(
-          `${APPLICATION_API_END_POINT}/${id}/applicants`
+          `${APPLICATION_API_END_POINT}/${params.id}/applicants`
         );
         if (res.data.success) {
           dispatch(setAllApplicants(res.data.job));

@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true })); // is used  to parse incoming r
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://job-search-kyjr.onrender.com",
 
   credentials: true,
 };
